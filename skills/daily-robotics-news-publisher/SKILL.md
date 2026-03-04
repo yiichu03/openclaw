@@ -66,3 +66,5 @@ scripts/publish_daily_robotics_news.sh \
 - Preserves same-day versions by filename suffix `_v2`, `_v3`, ...
 
 For the full conventions, see `references/conventions.md`.
+
+For deployment instructions (new machine + cron), see `references/deploy.md`.
