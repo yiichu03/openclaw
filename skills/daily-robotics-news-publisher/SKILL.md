@@ -29,15 +29,23 @@ description: Publish OpenClaw-generated daily robotics digests (Markdown) into a
 
 3. Run the publisher script.
 
-### Script
+### Scripts
 
-- Path: `scripts/publish_daily_robotics_news.sh`
+- Publisher (core): `scripts/publish_daily_robotics_news.sh`
+- Wrapper for cron chaining (recommended): `scripts/publish_after_generation.sh`
 
 Examples:
 
 ```bash
-# Publish today (CN/EN), commit, push
+# Recommended: publish today after your generator has produced CN/EN files
+scripts/publish_after_generation.sh
+
+# Publish a specific date (useful for backfills)
+scripts/publish_after_generation.sh 2026-03-04
+
+# Direct publisher (manual overrides)
 scripts/publish_daily_robotics_news.sh \
+  --date 2026-03-04 \
   --repo ~/prog/OpenClaw/yiichu03.github.io \
   --git-name yiichu03 \
   --git-email yiichu03@gmail.com
