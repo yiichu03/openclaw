@@ -7,14 +7,25 @@ description: Publish OpenClaw-generated daily robotics digests (Markdown) into a
 
 ## Workflow
 
+### A) End-to-end (generate → publish)
+
+1. **Generate the daily digests (CN + EN)** into the standard locations.
+   - Recommended output paths (what this skill defaults to):
+     - `~/prog/OpenClaw/docs/Chinese/robotics_digest_YYYY-MM-DD.md`
+     - `~/prog/OpenClaw/docs/English/robotics_digest_YYYY-MM-DD.md`
+   - How to generate:
+     - Run your existing OpenClaw “daily robotics news” routine (the agent can do multi-round web search, dedup, and write markdown).
+     - If you schedule it (cron), schedule **generation first**, then run the publisher script as the second step.
+
+2. **Publish to the website repo** (commit + push) using the script below.
+
+### B) Publish-only (files already generated)
+
 1. Ensure the target website repo exists locally and is a git repo.
    - Typical path: `~/prog/OpenClaw/yiichu03.github.io/`
    - Must have working git auth (SSH recommended).
 
 2. Ensure the source digest files exist (CN + EN).
-   - Typical paths:
-     - `~/prog/OpenClaw/docs/Chinese/robotics_digest_YYYY-MM-DD.md`
-     - `~/prog/OpenClaw/docs/English/robotics_digest_YYYY-MM-DD.md`
 
 3. Run the publisher script.
 
