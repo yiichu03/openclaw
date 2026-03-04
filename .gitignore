@@ -121,3 +121,9 @@ dist/protocol.schema.json
 
 # Synthing
 **/.stfolder/
+
+# Local stray sentinel files (should never be committed)
+/gpg
+/node
+/wget
+/openclaw@2026.2.24
